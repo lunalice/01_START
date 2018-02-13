@@ -14,6 +14,8 @@ public class LoginLogic {
 		// ユーザー登録画面
 		Connection conn;
 		try {
+			// Oracle JDBC Driverのロード
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
 			// ステートメントを作成
 			Statement stmt = conn.createStatement();
@@ -34,7 +36,7 @@ public class LoginLogic {
 			stmt.close();
 			// 接続をクローズ
 			conn.close();
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}

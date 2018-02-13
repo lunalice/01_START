@@ -6,6 +6,8 @@
 	User loginUser = (User) session.getAttribute("loginUser");
 	//List<Mutter> mutterList = (List<Mutter>) application.getAttribute("mutterList");
 	//ResultSet rset = (ResultSet) application.getAttribute("rset");
+	// Oracle JDBC Driverのロード
+	Class.forName("oracle.jdbc.driver.OracleDriver");
 	Connection conn;
 	conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
 	Statement stmt = conn.createStatement();

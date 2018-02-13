@@ -11,6 +11,6 @@
     <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
     <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre-9.0.4"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>
-    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;C:\Users\JAD\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0&quot; -Dcatalina.home=&quot;C:\Users\JAD\Desktop\開発環境\apache-tomcat-9.0.4&quot; -Dwtp.deploy=&quot;C:\Users\JAD\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps&quot;"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;C:\Users\JAD\git\01_START\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0&quot; -Dcatalina.home=&quot;C:\Users\JAD\Desktop\開発環境\apache-tomcat-9.0.4&quot; -Dwtp.deploy=&quot;C:\Users\JAD\git\01_START\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps&quot;"/>
     <stringAttribute key="server-id" value="ローカル・ホスト の Tomcat v9.0 サーバー"/>
 </launchConfiguration>
