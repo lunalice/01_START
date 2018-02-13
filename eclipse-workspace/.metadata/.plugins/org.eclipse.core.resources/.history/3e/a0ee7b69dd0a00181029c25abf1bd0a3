@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>おはこんばんにちはー！！！</title>
+</head>
+<body>
+<h1>とむきゃっと動くかテストだよー</h1>
+<p>フォームから何かを飛ばすよーびびっと</p>
+<form action="testsabure" method="POST">>
+名前：<INPUT type="text" name="name"></br>
+パスワード：<INPUT type="text" name="password"></br>
+<INPUT type="submit" value="登録">
+</form>
+</body>
+</html>

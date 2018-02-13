@@ -1,0 +1,43 @@
+package model;
+
+public class TestBean {
+	private String name;
+	private String password;
+	private String seibetsu;
+	private int kaisu;
+
+	public TestBean(String name, String password, String seibetsu, int kaisu) {
+		this.name = name;
+		this.password = password;
+		this.seibetsu = seibetsu;
+		this.kaisu = kaisu;
+	}
+
+	/**
+	 * @return name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	
+	/**
+	 * @return password
+	 */
+	public int getKaisu() {
+		return kaisu;
+	}
+
+	/**
+	 * @return seibetsu
+	 */
+	public String getSeibetsu() {
+		return seibetsu;
+	}
+}

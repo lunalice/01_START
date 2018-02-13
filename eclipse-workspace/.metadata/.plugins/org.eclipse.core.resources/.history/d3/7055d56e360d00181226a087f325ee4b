@@ -1,0 +1,81 @@
+package servlet;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.CreateUserLogic;
+
+/**
+ * Servlet implementation class Createuser
+ */
+@WebServlet("/Createuser")
+public class Createuser extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Createuser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String name = request.getParameter("name");
+		String pass = request.getParameter("pass1");
+		// User user = new User(name, pass);
+		// ユーザー重複チェック
+		CreateUserLogic isUser = new CreateUserLogic();
+		// ユーザー登録画面
+		Connection conn;
+		try {
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
+			// ステートメントを作成
+			Statement stmt = conn.createStatement();
+			// 問合せの実行つぶやき挿入
+			String sql = "INSERT INTO USERS (NAME,TUBU) VALUES('" + name + "','" + pass + "')";
+			// 挿入
+			stmt.executeQuery(sql);
+			// コミット
+			stmt.executeQuery("commit");
+			// ステートメントをクローズ
+			stmt.close();
+			// 接続をクローズ
+			conn.close();
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/createuserResult.jsp");
+		dispatcher.forward(request, response);
+		doGet(request, response);
+	}
+
+}

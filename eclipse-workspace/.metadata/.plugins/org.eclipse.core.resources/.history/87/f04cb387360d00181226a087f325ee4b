@@ -1,0 +1,7 @@
+package model;
+
+public class CreateUserLogic {
+	public doCheck(String name,String pass) {
+		
+	}
+}

@@ -1,0 +1,89 @@
+package servlet;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.CreateUserLogic;
+
+/**
+ * Servlet implementation class Createuser
+ */
+@WebServlet("/Createuser")
+public class Createuser extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Createuser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/createuser.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String name = request.getParameter("name");
+		String pass = request.getParameter("pass1");
+		// User user = new User(name, pass);
+		// ユーザー重複チェック
+		CreateUserLogic isUser = new CreateUserLogic();
+		// チェック
+		boolean isCheck = isUser.doCheck(name, pass);
+		// 重複チェックおっけー
+		if (isCheck) {
+			// ユーザー登録画面
+			Connection conn;
+			try {
+				conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
+				// ステートメントを作成
+				Statement stmt = conn.createStatement();
+				// 問合せの実行つぶやき挿入
+				String sql = "INSERT INTO USERS (NAME,TUBU) VALUES('" + name + "','" + pass + "')";
+				// 挿入
+				stmt.executeQuery(sql);
+				// コミット
+				stmt.executeQuery("commit");
+				// ステートメントをクローズ
+				stmt.close();
+				// 接続をクローズ
+				conn.close();
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/createuserResult.jsp");
+				dispatcher.forward(request, response);
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}else {
+//			// ユーザー重複しているときはこっち
+//			HttpSession session = request.getSession();
+//			session.setAttribute("isCheck", isCheck);
+			response.sendRedirect("/hello_world_now/createuser");
+		}
+	}
+}

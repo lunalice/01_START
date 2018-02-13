@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>おはこんばんにちはー！！！</title>
+</head>
+<body>
+	<h1>とむきゃっと動くかテストだよー</h1>
+	<p>フォームから何かを飛ばすよーびびっと</p>
+	<form action="testsabure" method="POST">
+		<table border="0">
+			<tr>
+				<td>年齢</td>
+				<td><input type="text" size="10" value="" name="name"></td>
+			</tr>
+			<tr>
+				<td>年収</td>
+				<td><input type="text" size="10" value="" name="nensyu"></td>
+			</tr>
+			<tr>
+				<td>性別</td>
+				<td><select name="seibetsu">
+						<option>男性</option>
+						<option>女性</option>
+				</select></td>
+			</tr>
+			<tr>
+		</table>
+		<INPUT type="submit" value="登録">
+	</form>
+</body>
+</html>

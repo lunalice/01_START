@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>おはこんばんにちはー！！！</title>
+</head>
+<body>
+<h1>とむきゃっと動くかテストだよーコンテンツは何もないよー</h1>
+<p>フォームから何かを飛ばすよーびびっと</p>
+<form>
+名前：</br>
+パスワード：</br>
+</form>
+</body>
+</html>
