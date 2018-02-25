@@ -12,13 +12,16 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css">
 <title>どこつぶ</title>
 </head>
 <body>
-	<p>TOP画面</p>
-	<ul>
-		<li><a href="/hello_world_now/Createuser">ユーザー登録</a></li>
-		<li><a href="/hello_world_now/Login">ログイン</a></li>
-	</ul>
+	<div class="box1">
+		<p>TOP画面</p>
+		<ul>
+			<li><a href="/hello_world_now/Createuser">ユーザー登録</a></li>
+			<li><a href="/hello_world_now/Login">ログイン</a></li>
+		</ul>
+	</div>
 </body>
 </html>

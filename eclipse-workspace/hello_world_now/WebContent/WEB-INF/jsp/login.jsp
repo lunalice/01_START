@@ -30,7 +30,7 @@
 			</div>
 			<input class="btn btn-primary" type="submit" value="ログイン">
 		</form>
+		<a href="/hello_world_now/">TOPへ</a>
 	</div>
-	<a href="/hello_world_now/">TOPへ</a>
 </body>
 </html>

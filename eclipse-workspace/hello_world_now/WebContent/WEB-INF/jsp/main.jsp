@@ -7,13 +7,16 @@
 	//List<Mutter> mutterList = (List<Mutter>) application.getAttribute("mutterList");
 	//ResultSet rset = (ResultSet) application.getAttribute("rset");
 	// Oracle JDBC Driverのロード
-	Class.forName("oracle.jdbc.driver.OracleDriver");
+	
 	Connection conn;
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
+	//Class.forName("oracle.jdbc.driver.OracleDriver");
+	//conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
+	Class.forName("org.mariadb.jdbc.Driver");
+	conn = DriverManager.getConnection("jdbc:mariadb://127.120.120.20/tubuyaki", "tubu", "rR1QIjCd");
 	Statement stmt = conn.createStatement();
 	// タイムスタンプ現代順で100件まで表示
-	ResultSet result = stmt
-			.executeQuery("select * from (select * from TUBUYAKI ORDER BY ENTRY DESC) where rownum <= 100");
+	//ResultSet result = stmt.executeQuery("select * from (select * from TUBUYAKI ORDER BY ENTRY DESC) where rownum <= 100");
+	ResultSet result = stmt.executeQuery("SELECT * FROM TUBUYAKI ORDER BY ENTRY DESC LIMIT 100");
 %>
 <!DOCTYPE html>
 <html>

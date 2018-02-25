@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +19,7 @@ import model.User;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -44,15 +43,16 @@ public class Login extends HttpServlet {
 		User user = new User(name, pass);
 		// ユーザー存在判定
 		LoginLogic loginLogic = new LoginLogic();
-		boolean isLogin = loginLogic.execute(name,pass);
+		boolean isLogin = loginLogic.execute(name, pass);
 		// ユーザーがいる時ログイン判定
 		if (isLogin) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", user);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/loginResult.jsp");
 			dispatcher.forward(request, response);
-		// ユーザーいない時リダイレクト
+			// ユーザーいない時リダイレクト
 		} else {
+			
 			response.sendRedirect("/hello_world_now/Login");
 		}
 	}

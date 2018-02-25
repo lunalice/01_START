@@ -3,14 +3,10 @@ package servlet;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.CallableStatement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -50,10 +46,12 @@ public class Main extends HttpServlet {
 		List<Mutter> mutterList = (List<Mutter>) application.getAttribute("mutterList");
 		mutterList.add(mut);
 		application.setAttribute("mutterList", mutterList);
-		
+
 		Connection conn;
 		try {
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
+			Class.forName("org.mariadb.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mariadb://127.120.120.20/tubuyaki", "tubu", "rR1QIjCd");
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
 			// ステートメントを作成
 			Statement stmt = conn.createStatement();
 			// 問合せの実行つぶやき挿入
@@ -66,7 +64,7 @@ public class Main extends HttpServlet {
 			stmt.close();
 			// 接続をクローズ
 			conn.close();
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}

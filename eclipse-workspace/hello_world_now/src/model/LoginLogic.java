@@ -14,9 +14,11 @@ public class LoginLogic {
 		// ユーザー登録画面
 		Connection conn;
 		try {
-			// Oracle JDBC Driverのロード
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
+			Class.forName("org.mariadb.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mariadb://127.120.120.20/tubuyaki", "tubu", "rR1QIjCd");
+//			// Oracle JDBC Driverのロード
+//			Class.forName("oracle.jdbc.driver.OracleDriver");
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
 			// ステートメントを作成
 			Statement stmt = conn.createStatement();
 			// 結果確保

@@ -25,7 +25,7 @@ application.setAttribute("loginUser", loginUser);
 <% 
 if(loginUser != null){ 
 %>
-<p>ログインに成功しました(実はどんなパスワードでも入れるんだ</p>
+<p>ログインに成功しました。</p>
 <p><%= loginUser.getName() %>=サンようこそ</p>
 <a href="/hello_world_now/Main">つぶやき登校・閲覧へ</a>
 <%

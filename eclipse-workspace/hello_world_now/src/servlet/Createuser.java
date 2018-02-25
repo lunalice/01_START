@@ -12,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.CreateUserLogic;
 
@@ -60,7 +59,12 @@ public class Createuser extends HttpServlet {
 			// ユーザー登録画面
 			Connection conn;
 			try {
-				conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE", "TUBU", "TUBU");
+
+				Class.forName("org.mariadb.jdbc.Driver");
+				conn = DriverManager.getConnection("jdbc:mariadb://127.120.120.20/tubuyaki", "tubu", "rR1QIjCd");
+				// conn =
+				// DriverManager.getConnection("jdbc:oracle:thin:@192.168.37.133:1521:XE",
+				// "TUBU", "TUBU");
 				// ステートメントを作成
 				Statement stmt = conn.createStatement();
 				// 問合せの実行つぶやき挿入
@@ -75,14 +79,14 @@ public class Createuser extends HttpServlet {
 				conn.close();
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/createuserResult.jsp");
 				dispatcher.forward(request, response);
-			} catch (SQLException e) {
+			} catch (SQLException | ClassNotFoundException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
 			}
-		}else {
-//			// ユーザー重複しているときはこっち
-//			HttpSession session = request.getSession();
-//			session.setAttribute("isCheck", isCheck);
+		} else {
+			// // ユーザー重複しているときはこっち
+			// HttpSession session = request.getSession();
+			// session.setAttribute("isCheck", isCheck);
 			response.sendRedirect("/hello_world_now/Createuser");
 		}
 	}
