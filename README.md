@@ -1,7 +1,6 @@
-# 01_START
+# sns_with_javaee
 
 作ってきたプロジェクトをあげたりする。
 
-memodiaryはhtaで作ったテキストエディタみたいなもの
-
+memodiaryはhtaで作ったテキストエディタみたいなもの（html css jquery）
 workspaceは簡易SNSの作成後。
