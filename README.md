@@ -1,6 +1,4 @@
 # sns_with_javaee
 
-作ってきたプロジェクトをあげたりする。 </br>
-
-memodiaryはhtaで作ったテキストエディタみたいなもの（html css jquery）</br>
-workspaceは簡易SNSの作成後。</br>
+javaEEでサーブレット練習とかする為に作ったSNS。</br>
+CSRFとかDBを環境変数にしてなかったり今思えばセキュリティｶﾞﾊﾞｶﾞﾊﾞ・・・</br>
